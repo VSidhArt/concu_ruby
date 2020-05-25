@@ -2,10 +2,11 @@ require 'openssl'
 require 'faraday'
 require 'benchmark'
 require 'concurrent'
-require_relative './http_client.rb'
+require_relative '../http_client.rb'
 
 
 class Processing
+  attr_reader :client
   # Creates 3 concurrent pools for each endpoint
   POOL_A = Concurrent::FixedThreadPool.new(3)
   POOL_B = Concurrent::FixedThreadPool.new(2)
@@ -17,21 +18,21 @@ class Processing
 
   def a(value)
     Concurrent::Promises.future_on(POOL_A) do
-      @client.request("a", {value: value})
+      client.request("a", {value: value})
     end
   end
 
   def b(value)
     Concurrent::Promises.future_on(POOL_B) do
       puts "B for #{value}"
-      @client.request("b", {value: value})
+      client.request("b", {value: value})
     end
   end
 
   def c(value)
     Concurrent::Promises.future_on(POOL_C) do
       puts "C for #{value}"
-      @client.request("c", {value: value})
+      client.request("c", {value: value})
     end
   end
 

@@ -25,6 +25,8 @@ GEM
     build-environment (1.13.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    concurrent-ruby-edge (0.6.0)
+      concurrent-ruby (~> 1.1.6)
     console (1.8.2)
     falcon (0.36.4)
       async (~> 1.13)
@@ -86,6 +88,7 @@ PLATFORMS
 DEPENDENCIES
   async
   concurrent-ruby
+  concurrent-ruby-edge
   falcon
   faraday
   minitest
