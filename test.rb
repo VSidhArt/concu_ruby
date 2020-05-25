@@ -2,7 +2,8 @@
 
 require 'benchmark'
 require 'minitest/autorun'
-require_relative './futures_solution/processing.rb'
+#require_relative './futures_solution/processing.rb'
+require_relative './csp_solution/processing.rb'
 
 class MainTest < Minitest::Test
   def test_correct_result
