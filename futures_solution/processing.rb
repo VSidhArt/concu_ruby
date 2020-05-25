@@ -17,22 +17,21 @@ class Processing
 
   def a(value)
     Concurrent::Promises.future_on(POOL_A) do
-      puts "A for #{value}"
-      Faraday.get("https://localhost:9292/a?value=#{value}").body
+      @client.request("a", {value: value})
     end
   end
 
   def b(value)
     Concurrent::Promises.future_on(POOL_B) do
       puts "B for #{value}"
-      Faraday.get("https://localhost:9292/b?value=#{value}").body
+      @client.request("b", {value: value})
     end
   end
 
   def c(value)
     Concurrent::Promises.future_on(POOL_C) do
       puts "C for #{value}"
-      Faraday.get("https://localhost:9292/c?value=#{value}").body
+      @client.request("c", {value: value})
     end
   end
 
