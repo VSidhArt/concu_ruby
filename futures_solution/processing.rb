@@ -64,10 +64,8 @@ class Processing
       a(collect_sorted(cc))
     end.flat
 
-    puts 'Work!'
+    puts 'GO!'
 
     c123.value!
   end
 end
-
-Processing.new.run

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require 'concurrent'
 require 'concurrent-edge'
-require 'pry'
 require_relative '../http_client.rb'
 
 class Processing
@@ -125,5 +124,3 @@ class Processing
     group[:a].length == 3 && group[:b].length == 1
   end
 end
-
-Processing.new.run

@@ -1,5 +1,5 @@
 # Concu Ruby
-Simple project for play `Concurrency` в `Ruby`.
+Simple project for play `Concurrency` in `Ruby`.
 
 ## Подготовка
 
@@ -34,5 +34,18 @@ Simple project for play `Concurrency` в `Ruby`.
 Он делает несколько запросов к серверу, как-то их комбинирует и выводит результат.
 
 ## Задача
-Проблема в том, что референсное решение отработывает примерно `19,5 секунд`, а в задании требуется уложиться в `7 секунд`.
+Проблема в том, что референсное решение отрабатывает примерно `19,5 секунд`, а в задании требуется уложиться в `7 секунд`.
+
+## Решение Futures
+Использована библиотека `concurrent-ruby` и модудь `Promise` для неблокирующих вызовов, для ограничения количества запросов
+`FixedThreadPool`. Решение отрабатывает за `6.3 секунды`
+
+## Решение CSP(Communicating Sequential Processes)
+Использована библиотека `concurrent-edge` и модудь `Channel`, аналог каналов в GoLang. Решение отрабатывает за `6.6 секунды`
+
+## ToDo
+- Ruby Treads and Queue
+- `socketry/async`
+- Ractor Ruby
+
 
